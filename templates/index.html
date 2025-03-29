@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECG & Fall Detection</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        button { font-size: 18px; padding: 10px 20px; margin: 10px; cursor: pointer; }
+        .start { background-color: green; color: white; }
+        .stop { background-color: red; color: white; }
+    </style>
+</head>
+<body>
+    <h1>ECG & Fall Detection System</h1>
+    <button class="start" onclick="startPrediction()">Start Prediction</button>
+    <button class="stop" onclick="stopPrediction()">Stop Prediction</button>
+    <p id="status">Status: Stopped</p>
+
+    <script>
+        function startPrediction() {
+            fetch("/start", { method: "POST" })
+                .then(response => response.json())
+                .then(data => document.getElementById("status").innerText = "Status: " + data.status);
+        }
+
+        function stopPrediction() {
+            fetch("/stop", { method: "POST" })
+                .then(response => response.json())
+                .then(data => document.getElementById("status").innerText = "Status: " + data.status);
+        }
+    </script>
+</body>
+</html>
