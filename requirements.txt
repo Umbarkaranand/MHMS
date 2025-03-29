@@ -4,3 +4,4 @@ tensorflow
 pyrebase
 scikit-learn
 gunicorn
+pycryptodome
