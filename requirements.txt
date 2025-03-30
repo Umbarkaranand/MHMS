@@ -1,4 +1,5 @@
 Flask
+pycryptodome 
 numpy
 tensorflow
 pyrebase
